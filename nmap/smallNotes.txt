@@ -1,0 +1,7 @@
+That said, it is very easy to configure a firewall to respond with a RST TCP packet. For example, in IPtables for Linux, a simple version of the command would be as follows:
+
+	iptables -I INPUT -p tcp --dport <port> -j REJECT --reject-with tcp-reset
+
+
+
+
